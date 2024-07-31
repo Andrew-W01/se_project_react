@@ -7,6 +7,11 @@
   display: flex;
   align-items: center;
   padding: 32px 0px 28px;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
 }
 
 .header__logo {
@@ -21,6 +26,10 @@
   line-height: 24px;
   border: none;
   font-family: "Cabinet Grotesk";
+  cursor: pointer;
+}
+.header__add-clothes-btn:hover {
+  color: grey;
 }
 
 .header__user {
@@ -31,7 +40,7 @@
 
 .header__username {
   margin: 0;
-  font-family: "Cabinet Grotesk";
+  font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24.8px;
@@ -39,7 +48,7 @@
 
 .header__date-and-location {
   margin: 0;
-  font-family: "Cabinet Grotesk";
+  font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 700;
   font-size: 20px;
   line-height: 24.8px;

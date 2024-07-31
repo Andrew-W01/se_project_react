@@ -1,9 +1,23 @@
 .footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-family: "Cabinet Grotesk";
-  font-size: 16px;
+  font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 500;
+  font-size: 16px;
   line-height: 20px;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  padding: 171px 20px 24px 20px;
+  margin: 0;
+}
+
+.footer__content-name {
+  list-style-type: none;
+  text-align: left;
+}
+
+.footer__content-year {
+  list-style-type: none;
+  text-align: right;
 }
