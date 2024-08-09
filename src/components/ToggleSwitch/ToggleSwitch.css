@@ -24,11 +24,11 @@
 
 .switch__slider-F {
   left: 27px;
-  animation: slideF 0.4s ease-in;
+  animation: slideF 0.2s ease-in;
 }
 
 .switch__slider-C {
-  animation: slideC 0.4s ease-in;
+  animation: slideC 0.2s ease-in;
 }
 
 .switch__active {
