@@ -1,0 +1,67 @@
+.switch {
+  display: flex;
+  position: relative;
+  margin-left: 666px;
+}
+
+.switch__box {
+  border-radius: 25px;
+  border: 2px solid black;
+  width: 56px;
+  height: 28px;
+  appearance: none;
+}
+.switch__slider {
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+}
+
+.switch__slider-F {
+  left: 27px;
+  animation: slideF 0.4s ease-in;
+}
+
+.switch__slider-C {
+  animation: slideC 0.4s ease-in;
+}
+
+.switch__active {
+  color: white;
+}
+
+.switch__temp-C {
+  position: absolute;
+  left: 7px;
+  top: -16px;
+  color: #f3f3f3;
+}
+
+.switch__temp-F {
+  position: absolute;
+  left: 36px;
+  top: -16px;
+  color: #f3f3f3;
+}
+
+@keyframes slideC {
+  0% {
+    transform: skewX(0deg) translateX(25px);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+@keyframes slideF {
+  0% {
+    transform: skewX(0deg) translateX(-25px);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
