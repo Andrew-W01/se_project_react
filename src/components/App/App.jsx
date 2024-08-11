@@ -12,13 +12,12 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import AddItemModal from "../AddItemModal/AddItemModal";
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999 },
     city: "",
   });
-  const [activeModal, setActiveModal] = useState("");
-  const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
 
   const handleCardClick = (card) => {
@@ -33,6 +32,15 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+
+  function handleAddItem(name, weather, imageUrl) {
+    postItem(name, imageUrl, weather)
+      .then((data) => {
+        setWeatherData((prev) => [data, ...prev]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  }
 
   const handleToggleSwitchChange = () => {
     if (currentTempUnit === "C") setCurrentTempUnit("F");
@@ -65,7 +73,7 @@ function App() {
         ></AddItemModal>
         <ItemModal
           activeModal={activeModal}
-          card={selectedCard}
+          card={handleAddItem}
           handleCloseClick={closeActiveModal}
         />
         <Footer />
