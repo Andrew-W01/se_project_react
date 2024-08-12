@@ -7,7 +7,7 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
     <ModalWithForm
       title="New garment"
       buttonText="Add garment"
-      activeModal={isOpen}
+      isOpen={isOpen}
       onClose={onClose}
       onSubmit={onAddItem}
     >
