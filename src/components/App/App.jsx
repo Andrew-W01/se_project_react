@@ -18,6 +18,8 @@ function App() {
     temp: { F: 999 },
     city: "",
   });
+
+  const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
 
   const handleCardClick = (card) => {
@@ -33,14 +35,9 @@ function App() {
     setActiveModal("");
   };
 
-  function handleAddItem(name, weather, imageUrl) {
-    postItem(name, imageUrl, weather)
-      .then((data) => {
-        setWeatherData((prev) => [data, ...prev]);
-        closeActiveModal();
-      })
-      .catch(console.error);
-  }
+  const onAddItem = (e) => {
+    console.log(e);
+  };
 
   const handleToggleSwitchChange = () => {
     if (currentTempUnit === "C") setCurrentTempUnit("F");
@@ -68,12 +65,12 @@ function App() {
 
         <AddItemModal
           isOpen={activeModal === "addItem"}
-          onAddItem={handleAddItem}
+          onAddItem={onAddItem}
           onClose={closeActiveModal}
         ></AddItemModal>
         <ItemModal
           activeModal={activeModal}
-          card={handleAddItem}
+          card={selectedCard}
           handleCloseClick={closeActiveModal}
         />
         <Footer />
