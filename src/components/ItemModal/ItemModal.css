@@ -1,5 +1,5 @@
 .modal__content_type_image {
-  padding: 1px 1px 25px;
+  padding: 0px;
 }
 
 .modal__image {
@@ -29,4 +29,18 @@
 
 .modal__close {
   color: black;
+}
+
+.card-item__delete-btn {
+  color: red;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  position: absolute;
+  outline: none;
+  cursor: pointer;
+  bottom: 70px;
+  left: 380px;
 }

@@ -11,6 +11,9 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import { getItems } from "../../utils/api";
+import { postItem } from "../../utils/api";
+import { deleteItem } from "../../utils/api";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -22,6 +25,7 @@ function App() {
 
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -36,9 +40,9 @@ function App() {
     setActiveModal("");
   };
 
-  const onAddItem = (values) => {
-    console.log(values);
-  };
+  // const onAddItem = (values) => {
+  //   console.log(values);
+  // };
 
   const handleToggleSwitchChange = () => {
     if (currentTempUnit === "C") setCurrentTempUnit("F");
@@ -54,6 +58,32 @@ function App() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        setClothingItems(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  function onAddItem(name, weather, imageUrl) {
+    postItem(name, imageUrl, weather)
+      .then((data) => {
+        setClothingItems((prev) => [data, ...prev]);
+        closeActiveModal();
+      })
+      .catch(console.error);
+  }
+
+  function handleDeleteItem(key) {
+    deleteItem(key)
+      .then(() => {
+        setClothingItems((prev) => prev.filter((item) => item._id !== key));
+        closeActiveModal();
+      })
+      .catch(console.error); // the modal is being closed
+  }
+
   return (
     <div className="page">
       <CurrentTemperatureUnitContext.Provider
@@ -66,14 +96,21 @@ function App() {
               path="/"
               element={
                 <Main
+                  clothingItems={clothingItems}
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                 />
               }
             />
             <Route
+              //and here aswell
               path="/profile"
-              element={<Profile onCardClick={handleCardClick} />}
+              element={
+                <Profile
+                  clothingItems={clothingItems}
+                  onCardClick={handleCardClick}
+                />
+              }
             />
           </Routes>
 
@@ -89,6 +126,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           handleCloseClick={closeActiveModal}
+          handleDeleteItem={handleDeleteItem}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
