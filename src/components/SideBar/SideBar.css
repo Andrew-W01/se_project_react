@@ -1,0 +1,23 @@
+.page__content {
+  max-width: 1360px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.sidebar {
+  display: flex;
+  gap: 15px;
+  margin-right: 116px;
+}
+.sidebar__username {
+  display: inline-block;
+  margin-top: 10px;
+  width: 140px;
+  font-weight: 700;
+}
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+}
