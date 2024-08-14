@@ -139,7 +139,7 @@ function App() {
         />
         <ConfirmDeleteModal
           isOpen={deleteModal === "delete"}
-          activeModal={activeModal === ""}
+          activeModal={activeModal}
           handleCloseClick={handleDeleteClose}
           handleDeleteItem={handleDeleteItem}
           handleDeleteClose={handleDeleteClose}

@@ -2,12 +2,13 @@ import "./ConfirmDeleteModal.css";
 import closeBtn from "../../assets/cls-btn.svg";
 
 function ConfirmDeleteModal({
+  item,
   activeModal,
   handleCloseClick,
   handleDeleteItem,
   handleDeleteClose,
 }) {
-  const deleteCard = (item) => {
+  const deleteCard = () => {
     handleDeleteItem(item);
   };
 
@@ -18,7 +19,7 @@ function ConfirmDeleteModal({
           <img
             src={closeBtn}
             alt="close-button"
-            className="modal__close-image"
+            className="modal__close-btn"
             onClick={handleCloseClick}
           />
         </button>
