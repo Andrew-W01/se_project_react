@@ -83,7 +83,7 @@ function App() {
   }
 
   const openDeleteModal = () => {
-    setDeleteModal("delete");
+    setActiveModal("delete");
   };
 
   const handleDeleteClose = () => {
@@ -135,11 +135,9 @@ function App() {
           deleteModal={deleteModal}
           openDeleteModal={openDeleteModal}
           handleCloseClick={closeActiveModal}
-          handleDeleteItem={handleDeleteItem}
         />
         <ConfirmDeleteModal
-          isOpen={deleteModal === "delete"}
-          activeModal={activeModal}
+          isOpen={activeModal === "delete"}
           handleCloseClick={handleDeleteClose}
           handleDeleteItem={handleDeleteItem}
           handleDeleteClose={handleDeleteClose}
