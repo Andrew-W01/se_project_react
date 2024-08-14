@@ -13,6 +13,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import { getItems } from "../../utils/api";
 import { postItem } from "../../utils/api";
 import { deleteItem } from "../../utils/api";
+import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -135,6 +136,13 @@ function App() {
           openDeleteModal={openDeleteModal}
           handleCloseClick={closeActiveModal}
           handleDeleteItem={handleDeleteItem}
+        />
+        <ConfirmDeleteModal
+          isOpen={deleteModal === "delete"}
+          activeModal={activeModal === ""}
+          handleCloseClick={handleDeleteClose}
+          handleDeleteItem={handleDeleteItem}
+          handleDeleteClose={handleDeleteClose}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>

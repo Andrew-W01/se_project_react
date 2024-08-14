@@ -7,7 +7,7 @@ function ConfirmDeleteModal({
   handleDeleteItem,
   handleDeleteClose,
 }) {
-  const deleteCard = () => {
+  const deleteCard = (item) => {
     handleDeleteItem(item);
   };
 
