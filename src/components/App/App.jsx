@@ -25,6 +25,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [deleteModal, setDeleteModal] = useState("");
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -70,14 +71,23 @@ function App() {
       .catch(console.error);
   }
 
-  function handleDeleteItem(APIkey) {
-    deleteItem(APIkey)
+  function handleDeleteItem(id) {
+    deleteItem(id)
       .then(() => {
-        setClothingItems((prev) => prev.filter((item) => item._id !== APIkey));
+        setClothingItems((prev) => prev.filter((item) => item._id !== id));
         closeActiveModal();
+        handleDeleteClose();
       })
       .catch(console.error);
   }
+
+  const openDeleteModal = () => {
+    setDeleteModal("delete");
+  };
+
+  const handleDeleteClose = () => {
+    setDeleteModal("");
+  };
 
   return (
     <div className="page">
@@ -121,6 +131,8 @@ function App() {
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
+          deleteModal={deleteModal}
+          openDeleteModal={openDeleteModal}
           handleCloseClick={closeActiveModal}
           handleDeleteItem={handleDeleteItem}
         />
