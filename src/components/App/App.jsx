@@ -61,8 +61,8 @@ function App() {
       .catch(console.error);
   }, []);
 
-  function onAddItem(name, weather, imageUrl) {
-    postItem(name, imageUrl, weather)
+  function onAddItem({ name, weather, link }) {
+    postItem(name, link, weather)
       .then((data) => {
         setClothingItems((prev) => [data, ...prev]);
         closeActiveModal();

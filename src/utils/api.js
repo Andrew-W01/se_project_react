@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function checkResponse(res) {
   if (res.ok) {
     return res.json();
@@ -10,13 +12,13 @@ export const getItems = () => {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 };
 
-export const postItem = (name, imageUrl, weather) => {
+export const postItem = (name, link, weather) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     body: JSON.stringify({
       name: name,
       weather: weather,
-      imageUrl: imageUrl,
+      imageUrl: link,
     }),
     headers: {
       "Content-Type": "application/json; charset=UTF-8",

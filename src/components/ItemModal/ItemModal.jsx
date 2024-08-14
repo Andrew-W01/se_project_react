@@ -12,14 +12,14 @@ function ItemModal({ activeModal, handleCloseClick, card, handleDeleteItem }) {
         >
           <img src={closeBtn} alt="close button" className="modal__close-btn" />
         </button>
-        <img src={card.link} alt="Image" className="modal__image" />
+        <img src={card.imageUrl} alt="Image" className="modal__image" />
         <div className="modal__footer">
           <h2 className="modal__caption">{card.name}</h2>
           <p className="modal__weather">Weather: {card.weather}</p>
         </div>
         <button
           onClick={() => {
-            handleDeleteItem(activeModal._id);
+            handleDeleteItem(card._id);
           }}
           className="card-item__delete-btn"
         >
