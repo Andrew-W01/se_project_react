@@ -21,7 +21,16 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem({ name, link });
+    setName("");
+    setUrl("");
   };
+  //clear inputs
+  useEffect(() => {
+    if (!isOpen) {
+      setName("");
+      setUrl("");
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm

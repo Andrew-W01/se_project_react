@@ -6,7 +6,6 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
@@ -40,10 +39,6 @@ function App() {
     setActiveModal("");
   };
 
-  // const onAddItem = (values) => {
-  //   console.log(values);
-  // };
-
   const handleToggleSwitchChange = () => {
     if (currentTempUnit === "C") setCurrentTempUnit("F");
     if (currentTempUnit === "F") setCurrentTempUnit("C");
@@ -75,13 +70,13 @@ function App() {
       .catch(console.error);
   }
 
-  function handleDeleteItem(key) {
-    deleteItem(key)
+  function handleDeleteItem(APIkey) {
+    deleteItem(APIkey)
       .then(() => {
-        setClothingItems((prev) => prev.filter((item) => item._id !== key));
+        setClothingItems((prev) => prev.filter((item) => item._id !== APIkey));
         closeActiveModal();
       })
-      .catch(console.error); // the modal is being closed
+      .catch(console.error);
   }
 
   return (
