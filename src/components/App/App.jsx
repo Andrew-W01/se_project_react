@@ -89,7 +89,7 @@ function App() {
   };
 
   const handleDeleteClose = () => {
-    setDeleteModal("");
+    setActiveModal(false);
   };
 
   return (

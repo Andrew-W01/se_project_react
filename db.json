@@ -101,6 +101,22 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "andrew worley",
+      "weather": "on",
+      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Shorts.png?etag=d728c496643f610de8d8fea92dd915ba",
+      "_id": 17
+    },
+    {
+      "name": "andrew worley",
+      "weather": "on",
+      "_id": 18
+    },
+    {
+      "name": "andrew worley",
+      "weather": "on",
+      "_id": 19
     }
   ]
 }
