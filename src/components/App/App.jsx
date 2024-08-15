@@ -72,10 +72,12 @@ function App() {
       .catch(console.error);
   }
 
-  function handleDeleteItem(id) {
-    deleteItem(id)
+  function handleDeleteItem() {
+    deleteItem(selectedCard._id)
       .then(() => {
-        setClothingItems((prev) => prev.filter((item) => item._id !== id));
+        setClothingItems((prev) =>
+          prev.filter((item) => item._id !== selectedCard._id)
+        );
         closeActiveModal();
         handleDeleteClose();
       })

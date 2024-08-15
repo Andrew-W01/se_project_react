@@ -1,10 +1,10 @@
-.modal {
+.modal__delete-card {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #0000004d;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,9 +12,11 @@
   line-height: 20px;
   font-family: Cabinet Grotesk, Arial, sans-serif;
   margin: 0;
+  width: 670px;
+  height: 280px;
 }
 
-.modal__content_type_delete {
+/* .modal__content_type_delete {
   padding: 60px 150px;
   border-style: none;
   position: relative;
@@ -44,4 +46,4 @@
   background-color: transparent;
   margin: 24px auto 0;
   cursor: pointer;
-}
+} */
