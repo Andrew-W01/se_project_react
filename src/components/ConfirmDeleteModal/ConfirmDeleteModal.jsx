@@ -13,7 +13,7 @@ function ConfirmDeleteModal({
   };
 
   return (
-    <div className={`modal__delete-card ${activeModal && "modal_opened"}`}>
+    <div className={`modal  ${activeModal && "modal_opened"}`}>
       <div className="modal__container modal__content_type_delete">
         <button className="modal__close" type="button">
           <img

@@ -17,7 +17,7 @@ function ModalWithForm({
   }
 
   return (
-    <div className={`modal ${getModalClass()}`}>
+    <div className={`modal  ${getModalClass()}`}>
       <div className="modal__content">
         <form className="moda__form" onSubmit={onSubmit}>
           <h2 className="modal__title">{title}</h2>

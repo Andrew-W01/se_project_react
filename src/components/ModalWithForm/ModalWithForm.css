@@ -104,3 +104,34 @@
 .modal__legend {
   margin-bottom: 12px;
 }
+.modal__container {
+  background-color: white;
+  padding: 60px 150px;
+  border-style: none;
+  position: relative;
+  font-family: Cabinet Grotesk, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 20px;
+}
+.modal__delete_question {
+  margin: 0;
+}
+
+.modal__confirm {
+  color: #ff4d00;
+  border: none;
+  background-color: transparent;
+  margin: 40px auto 0;
+  cursor: pointer;
+}
+
+.modal__cancel {
+  border: none;
+  background-color: transparent;
+  margin: 24px auto 0;
+  cursor: pointer;
+}
