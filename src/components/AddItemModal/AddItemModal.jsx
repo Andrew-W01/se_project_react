@@ -77,6 +77,7 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
             name="input"
             id="hot"
             type="radio"
+            value="hot"
             className="modal__radio-input"
             onChange={handleWeatherChange}
           />{" "}
@@ -86,6 +87,7 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
           <input
             name="input"
             id="warm"
+            value="warm"
             type="radio"
             className="modal__radio-input"
             onChange={handleWeatherChange}
@@ -96,6 +98,7 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
           <input
             name="input"
             id="cold"
+            value="cold"
             type="radio"
             className="modal__radio-input"
             onChange={handleWeatherChange}

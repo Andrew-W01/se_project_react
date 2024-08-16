@@ -16,7 +16,8 @@ function ClothesSection({
       <div className="section__header">
         <p>Your Items</p>
         <button onClick={handleAddClick} className="section__add-button">
-          + Add New
+          {" "}
+          + Add item{" "}
         </button>
       </div>
       <ul className="clothes-section__list">
