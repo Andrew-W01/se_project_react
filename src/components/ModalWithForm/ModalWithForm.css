@@ -52,12 +52,14 @@
 .modal__form {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 496px;
+
+  padding: 28px 0px 36px 28px;
 }
 
 .modal__input {
   display: block;
-  width: 100%;
+  width: 440px;
   border-top: none;
   border-left: none;
   border-right: none;

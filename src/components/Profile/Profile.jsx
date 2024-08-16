@@ -3,7 +3,7 @@ import SideBar from "../SideBar/SideBar";
 import Footer from "../Footer/Footer";
 import "./Profile.css";
 
-function Profile({ onCardClick, setClothingItems, weatherData }) {
+function Profile({ onCardClick, clothingItems, weatherData }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
@@ -12,7 +12,7 @@ function Profile({ onCardClick, setClothingItems, weatherData }) {
       <section className="profile__clothing-items">
         <ClothesSection
           onCardClick={onCardClick}
-          setClothingItems={setClothingItems}
+          clothingItems={clothingItems}
           weatherData={weatherData}
         />
       </section>
