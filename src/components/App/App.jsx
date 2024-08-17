@@ -26,7 +26,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
-  const [deleteModal, setDeleteModal] = useState("");
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -88,9 +87,9 @@ function App() {
     setActiveModal("delete");
   };
 
-  const handleDeleteClose = () => {
-    setActiveModal(false);
-  };
+  // const handleDeleteClose = () => {
+  //   setActiveModal(false);
+  // };
 
   return (
     <div className="page">
@@ -135,15 +134,12 @@ function App() {
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
-          deleteModal={deleteModal}
           openDeleteModal={openDeleteModal}
           handleCloseClick={closeActiveModal}
         />
         <ConfirmDeleteModal
           activeModal={activeModal === "delete"}
-          handleCloseClick={handleDeleteClose}
           handleDeleteItem={handleDeleteItem}
-          handleDeleteClose={handleDeleteClose}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
