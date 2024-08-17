@@ -78,7 +78,6 @@ function App() {
           prev.filter((item) => item._id !== selectedCard._id)
         );
         closeActiveModal();
-        handleDeleteClose();
       })
       .catch(console.error);
   }
@@ -86,10 +85,6 @@ function App() {
   const openDeleteModal = () => {
     setActiveModal("delete");
   };
-
-  // const handleDeleteClose = () => {
-  //   setActiveModal(false);
-  // };
 
   return (
     <div className="page">
@@ -140,6 +135,7 @@ function App() {
         <ConfirmDeleteModal
           activeModal={activeModal === "delete"}
           handleDeleteItem={handleDeleteItem}
+          closeActiveModal={closeActiveModal}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
