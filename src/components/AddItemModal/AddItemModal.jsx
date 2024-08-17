@@ -20,16 +20,17 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!name || !link || !weather) {
+      alert("All fields are required");
+      return;
+    }
     onAddItem({ name, link, weather });
-    setName("");
-    setUrl("");
   };
   //clear inputs
   useEffect(() => {
-    if (!isOpen) {
-      setName("");
-      setUrl("");
-    }
+    setName("");
+    setUrl("");
+    setWeather("");
   }, [isOpen]);
 
   //weather
