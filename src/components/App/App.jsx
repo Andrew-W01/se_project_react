@@ -14,6 +14,9 @@ import { getItems } from "../../utils/api";
 import { postItem } from "../../utils/api";
 import { deleteItem } from "../../utils/api";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
+import Register from "../RegisterModal/RegisterModal";
+import Login from "../LoginModal/LoginModal";
+import * as auth from "../../utils/auth";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -26,6 +29,45 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [currentUser, setCurrentUser] = useState({
+    name: "",
+    email: "",
+    avatar: "",
+    _id: "",
+  });
+
+  console.log(currentUser);
+
+  const handleRegistration = ({ name, email, password, avatar }) => {
+    return auth
+      .register(name, password, email, avatar)
+      .then(() => {
+        handleLogin({ email, password });
+        closeActiveModal();
+      })
+      .catch(console.error);
+  };
+
+  const handleLogin = ({ email, password }) => {
+    if (!email || !password) {
+      return;
+    }
+    return auth
+      .authorize(email, password)
+      .then((data) => {
+        console.log(data);
+        if (data.token) {
+          setToken(data.token);
+          api.getUserInfo(data.token).then((userData) => {
+            setCurrentUser(userData);
+            setIsLoggedIn(true);
+            closeActiveModal();
+            navigate("/profile");
+          });
+        }
+      })
+      .catch(console.error);
+  };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -56,8 +98,8 @@ function App() {
 
   useEffect(() => {
     getItems()
-      .then((data) => {
-        setClothingItems(data);
+      .then(({ data }) => {
+        setClothingItems(data.reverse);
       })
       .catch(console.error);
   }, []);
@@ -81,6 +123,13 @@ function App() {
       })
       .catch(console.error);
   }
+
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+  const handleSignUpClick = () => {
+    setActiveModal("register");
+  };
 
   const openDeleteModal = () => {
     setActiveModal("delete");
@@ -126,6 +175,18 @@ function App() {
           onAddItem={onAddItem}
           onClose={closeActiveModal}
         ></AddItemModal>
+        <Login
+          isOpen={activeModal === "login"}
+          onClose={closeActiveModal}
+          onLogin={handleLogin}
+          handleLoginClick={handleLoginClick}
+        />
+        <Register
+          isOpen={activeModal === "register"}
+          onClose={closeActiveModal}
+          onSignup={handleRegistration}
+          handleSignUpClick={handleSignUpClick}
+        />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
