@@ -2,7 +2,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 import "./LoginModal.css";
 
-const Login = ({ handleLogin, isOpen, onClose, navigateToSignUp }) => {
+const Login = ({ handleLogin, isOpen, onClose, handleLoginClick }) => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -69,7 +69,7 @@ const Login = ({ handleLogin, isOpen, onClose, navigateToSignUp }) => {
           className="login__login-link"
           type="button"
           to="login"
-          onClick={navigateToSignUp}
+          onClick={handleLoginClick}
         >
           Or Sign Up
         </button>

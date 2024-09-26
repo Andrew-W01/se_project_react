@@ -179,13 +179,13 @@ function App() {
           isOpen={activeModal === "login"}
           onClose={closeActiveModal}
           onLogin={handleLogin}
-          handleLoginClick={handleLoginClick}
+          handleLogin={handleLoginClick}
         />
         <Register
           isOpen={activeModal === "register"}
           onClose={closeActiveModal}
           onSignup={handleRegistration}
-          handleSignUpClick={handleSignUpClick}
+          handleRegistration={handleSignUpClick}
         />
         <ItemModal
           activeModal={activeModal}
