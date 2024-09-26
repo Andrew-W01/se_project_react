@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
@@ -16,6 +16,7 @@ import { deleteItem } from "../../utils/api";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 import Register from "../RegisterModal/RegisterModal";
 import Login from "../LoginModal/LoginModal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import * as auth from "../../utils/auth";
 
 function App() {
@@ -35,8 +36,9 @@ function App() {
     avatar: "",
     _id: "",
   });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  console.log(currentUser);
+  const navigate = useNavigate();
 
   const handleRegistration = ({ name, email, password, avatar }) => {
     return auth
@@ -141,7 +143,12 @@ function App() {
         value={{ currentTempUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            weatherData={weatherData}
+            handleLoginClick={handleLoginClick}
+            handleSignUpClick={handleSignUpClick}
+          />
           <Routes>
             <Route
               path="/"
@@ -157,12 +164,14 @@ function App() {
               //and here aswell
               path="/profile"
               element={
-                <Profile
-                  clothingItems={clothingItems}
-                  weatherData={weatherData}
-                  onCardClick={handleCardClick}
-                  handleAddClick={handleAddClick}
-                />
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
+                    clothingItems={clothingItems}
+                    weatherData={weatherData}
+                    onCardClick={handleCardClick}
+                    handleAddClick={handleAddClick}
+                  />
+                </ProtectedRoute>
               }
             />
           </Routes>
@@ -170,11 +179,6 @@ function App() {
           <Footer />
         </div>
 
-        <AddItemModal
-          isOpen={activeModal === "add-garment"}
-          onAddItem={onAddItem}
-          onClose={closeActiveModal}
-        ></AddItemModal>
         <Login
           isOpen={activeModal === "login"}
           onClose={closeActiveModal}
@@ -186,6 +190,11 @@ function App() {
           onClose={closeActiveModal}
           onSignup={handleRegistration}
           handleRegistration={handleSignUpClick}
+        />
+        <AddItemModal
+          isOpen={activeModal === "add-garment"}
+          onAddItem={onAddItem}
+          onClose={closeActiveModal}
         />
         <ItemModal
           activeModal={activeModal}
