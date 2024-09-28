@@ -31,7 +31,12 @@ const Register = ({
   };
 
   const handleSubmit = (e) => {
+    // console.log(handleSubmit);
+
     e.preventDefault();
+    if (!isFormValid()) {
+      return;
+    }
     handleRegistration(data);
   };
   return (
@@ -43,9 +48,9 @@ const Register = ({
       onSubmit={handleSubmit}
     >
       <label htmlFor="email" className="modal__label">
-        Email*
+        Email*{" "}
         <input
-          type="email"
+          type="text"
           className="modal__input"
           id="email"
           placeholder="Email"
@@ -55,7 +60,7 @@ const Register = ({
         />
       </label>
       <label htmlFor="password" className="modal__label">
-        Password*
+        Password*{" "}
         <input
           type="text"
           className="modal__input"
@@ -67,7 +72,7 @@ const Register = ({
         />
       </label>
       <label htmlFor="name" className="modal__label">
-        Name*
+        Name*{" "}
         <input
           type="text"
           className="modal__input"
@@ -81,7 +86,7 @@ const Register = ({
       <label htmlFor="avatar" className="modal__label">
         Avatar URL*{" "}
         <input
-          type="link"
+          type="url"
           className="modal__input"
           id="avatar"
           placeholder="Avatar URL"

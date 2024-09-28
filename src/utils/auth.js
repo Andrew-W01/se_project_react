@@ -1,7 +1,7 @@
-export const BASE_URL = "http://localhost:3001";
+import { baseUrl, request } from "./api";
 
 export const register = (name, password, email, avatar) => {
-  return fetch(`${BASE_URL}/signup`, {
+  return request(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -12,12 +12,22 @@ export const register = (name, password, email, avatar) => {
 };
 
 export const authorize = (email, password) => {
-  return fetch(`${BASE_URL}/signup`, {
+  return request(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
+  });
+};
+
+export const checkToken = (token) => {
+  return request(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
   });
 };

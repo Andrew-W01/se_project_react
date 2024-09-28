@@ -1,4 +1,8 @@
-import { Link } from "react-router-dom";
+const baseUrl = "http://localhost:3001";
+
+export const request = (url, options) => {
+  return fetch(url, options).then(checkResponse);
+};
 
 export function checkResponse(res) {
   if (res.ok) {
@@ -7,7 +11,6 @@ export function checkResponse(res) {
   return Promise.reject(`Error: ${res.status}`);
 }
 
-const baseUrl = "http://localhost:3001";
 export const getItems = () => {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 };
@@ -35,3 +38,5 @@ export const deleteItem = (id) => {
     },
   }).then(checkResponse);
 };
+
+export { baseUrl };
