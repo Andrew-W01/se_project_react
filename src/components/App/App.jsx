@@ -54,17 +54,6 @@ function App() {
       .catch(console.error);
   };
 
-  // const handleLogIn = (data) => {
-  //   s(data)
-  //     .then((res) => {
-  //       setIsLoggedIn(true);
-  //       setCurrentUser(res.user);
-  //       localStorage.setItem("jwt", res.token);
-  //       closeActiveModal();
-  //     })
-  //     .catch(console.error);
-  // };
-
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
       return;
@@ -74,6 +63,7 @@ function App() {
       .then((data) => {
         setCurrentUser(data);
         setIsLoggedIn(true);
+        localStorage.setItem("jwt", res.token);
         closeActiveModal();
         navigate("/profile");
       })
@@ -131,7 +121,9 @@ function App() {
   }, []);
 
   function onAddItem({ name, weather, link }) {
-    postItem(name, link, weather)
+    const token = localStorage.getItem("jwt");
+
+    postItem(name, link, weather, token)
       .then((data) => {
         setClothingItems((prev) => [data, ...prev]);
         closeActiveModal();
@@ -140,7 +132,9 @@ function App() {
   }
 
   function handleDeleteItem() {
-    deleteItem(selectedCard._id)
+    const token = localStorage.getItem("jwt");
+
+    deleteItem(selectedCard._id, token)
       .then(() => {
         setClothingItems((prev) =>
           prev.filter((item) => item._id !== selectedCard._id)
@@ -150,6 +144,29 @@ function App() {
       .catch(console.error);
   }
 
+  const handleCardLike = ({ item, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+
+    !isLiked
+      ? likeCard(item._id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((card) =>
+                card._id === item._id ? updatedCard.data : card
+              )
+            );
+          })
+          .catch(console.error)
+      : unlikeCard(item._id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((card) =>
+                card._id === item._id ? updatedCard.data : card
+              )
+            );
+          })
+          .catch(console.error);
+  };
   const handleLoginClick = () => {
     setActiveModal("login");
   };
@@ -171,6 +188,7 @@ function App() {
             <Header
               handleAddClick={handleAddClick}
               weatherData={weatherData}
+              isLoggedIn={isLoggedIn}
               handleLoginClick={handleLoginClick}
               handleSignUpClick={handleSignUpClick}
             />
@@ -182,6 +200,7 @@ function App() {
                     clothingItems={clothingItems}
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
@@ -195,6 +214,7 @@ function App() {
                       weatherData={weatherData}
                       onCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
+                      onCardLike={handleCardLike}
                     />
                   </ProtectedRoute>
                 }

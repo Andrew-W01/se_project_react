@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { defaultClothingItems } from "../../utils/constants.js";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
 function ClothesSection({
   onCardClick,
@@ -10,6 +11,7 @@ function ClothesSection({
   weatherData,
   handleAddClick,
 }) {
+  const currentUser = useContext(CurrentUserContext);
   const { currentTempUnit } = useContext(CurrentTemperatureUnitContext);
   return (
     <div className="clothes-section">
@@ -23,7 +25,10 @@ function ClothesSection({
       <ul className="clothes-section__list">
         {clothingItems.map((item) => {
           return (
-            <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+            item.owner ===
+            currentUser?._id(
+              <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+            )
           );
         })}
       </ul>
