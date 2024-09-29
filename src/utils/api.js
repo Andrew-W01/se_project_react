@@ -15,7 +15,7 @@ export const getItems = () => {
   return fetch(`${baseUrl}/items`).then(checkResponse);
 };
 
-export const postItem = (name, link, weather) => {
+export const postItem = (name, link, weather, token) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     body: JSON.stringify({
@@ -25,18 +25,40 @@ export const postItem = (name, link, weather) => {
     }),
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
+      authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
 };
 
-export const deleteItem = (id) => {
+export const deleteItem = (id, token) => {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
 
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
+      authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
+};
+
+export const unlikeCard = (_id, token) => {
+  return fetch(`${baseUrl}/items/${_id}/likes/`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+      authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const likeCard = (_id, token) => {
+  return fetch(`${baseUrl}/items/${_id}/likes/`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8",
+      authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 export { baseUrl };

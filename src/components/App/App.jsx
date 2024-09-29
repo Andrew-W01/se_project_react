@@ -63,7 +63,7 @@ function App() {
       .then((data) => {
         setCurrentUser(data);
         setIsLoggedIn(true);
-        localStorage.setItem("jwt", res.token);
+        localStorage.setItem("jwt", data.token);
         closeActiveModal();
         navigate("/profile");
       })
