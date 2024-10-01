@@ -19,6 +19,7 @@ import Login from "../LoginModal/LoginModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal";
+// import { editProfile } from "../../utils/auth";
 import * as auth from "../../utils/auth";
 import * as api from "../../utils/api";
 
@@ -149,7 +150,8 @@ function App() {
   const handleEditProfile = (data) => {
     const token = localStorage.getItem("jwt");
 
-    editProfile(data, token)
+    auth
+      .editProfile(data, token)
       .then((res) => {
         setCurrentUser(res.data);
         closeActiveModal();
