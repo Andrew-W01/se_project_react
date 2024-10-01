@@ -10,18 +10,21 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems, likeCard, unlikeCard } from "../../utils/api";
-import { postItem } from "../../utils/api";
-import { deleteItem } from "../../utils/api";
+
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 import Register from "../RegisterModal/RegisterModal";
 import Login from "../LoginModal/LoginModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import EditProfileModal from "../EditProfileModal";
-// import { editProfile } from "../../utils/auth";
+import {
+  getItems,
+  likeCard,
+  unlikeCard,
+  postItem,
+  deleteItem,
+} from "../../utils/api";
 import * as auth from "../../utils/auth";
-import * as api from "../../utils/api";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");

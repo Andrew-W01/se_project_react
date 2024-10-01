@@ -48,7 +48,7 @@ export const unlikeCard = (_id, token) => {
       "Content-Type": "application/json; charset=UTF-8",
       authorization: `Bearer ${token}`,
     },
-  });
+  }).then(checkResponse);
 };
 
 export const likeCard = (_id, token) => {
@@ -58,7 +58,7 @@ export const likeCard = (_id, token) => {
       "Content-Type": "application/json; charset=UTF-8",
       authorization: `Bearer ${token}`,
     },
-  });
+  }).then(checkResponse);
 };
 
 export { baseUrl };

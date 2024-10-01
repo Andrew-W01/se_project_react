@@ -25,13 +25,7 @@ function ClothesSection({
       </div>
       <ul className="clothes-section__list">
         {clothingItems
-          .filter(
-            (item) =>
-              item &&
-              item.owner &&
-              currentUser &&
-              item.owner === currentUser._id
-          )
+          .filter((item) => currentUser && item.owner === currentUser._id)
           .map((item) => (
             <ItemCard
               key={item._id}
