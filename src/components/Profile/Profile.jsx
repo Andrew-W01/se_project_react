@@ -9,11 +9,16 @@ function Profile({
   weatherData,
   handleAddClick,
   onCardLike,
+  handleLogOutClick,
+  handleEditProfileClick,
 }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar />
+        <SideBar
+          handleLogOutClick={handleLogOutClick}
+          handleEditProfileClick={handleEditProfileClick}
+        />
       </section>
       <section className="profile__clothing-items">
         <ClothesSection

@@ -5,6 +5,7 @@
 
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 32px 0px 28px;
   font-family: "Cabinet Grotesk", sans-serif;
@@ -19,7 +20,7 @@
 }
 
 .header__add-clothes-btn {
-  margin-left: auto;
+  margin-left: 20px;
   margin-right: 20px;
   font-weight: 700;
   font-size: 20px;

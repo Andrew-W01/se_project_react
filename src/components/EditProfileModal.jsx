@@ -42,7 +42,7 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="name-1"
           placeholder="Name"
           value={name}
           onChange={handleNameChange}
