@@ -6,23 +6,40 @@
   justify-content: center;
 }
 
-.card__name {
+.card__header {
   position: absolute;
   top: 15px;
-  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.card__name {
+  top: 15px;
+  margin-left: 0;
   padding: 2px 12px;
   background-color: #fff;
   border-radius: 4px;
-  gap: 8px;
   font-weight: 700;
   font-size: 16px;
   color: #000;
-  opacity: 60%;
   font-family: "Cabinet Grotesk";
+  text-align: center;
 }
 
 .card__image {
   width: 100%;
   border: 1px solid #000;
   border-radius: 19px;
+}
+
+.card__like-button {
+  margin-left: 0px;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__image:hover {
+  cursor: pointer;
 }

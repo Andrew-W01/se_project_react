@@ -25,8 +25,7 @@ function ClothesSection({
       <ul className="clothes-section__list">
         {clothingItems.map((item) => {
           return (
-            item.owner ===
-            currentUser?._id(
+            item.owner === currentUser?._id && (
               <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
             )
           );

@@ -112,7 +112,8 @@ function App() {
       return;
     }
 
-    checkToken(token)
+    auth
+      .checkToken(token)
       .then((user) => {
         setIsLoggedIn(true);
         setCurrentUser(user);
