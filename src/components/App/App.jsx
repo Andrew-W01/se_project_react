@@ -18,6 +18,7 @@ import Register from "../RegisterModal/RegisterModal";
 import Login from "../LoginModal/LoginModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import EditProfileModal from "../EditProfileModal";
 import * as auth from "../../utils/auth";
 import * as api from "../../utils/api";
 
@@ -145,6 +146,18 @@ function App() {
       .catch(console.error);
   }
 
+  const handleEditProfile = (data) => {
+    const token = localStorage.getItem("jwt");
+
+    editProfile(data, token)
+      .then((res) => {
+        setCurrentUser(res.data);
+        closeActiveModal();
+        window.location.reload();
+      })
+      .catch(console.error);
+  };
+
   const handleCardLike = ({ item, isLiked }) => {
     const token = localStorage.getItem("jwt");
 
@@ -177,6 +190,15 @@ function App() {
 
   const openDeleteModal = () => {
     setActiveModal("delete");
+  };
+
+  const handleEditProfileClick = () => {
+    setActiveModal("edit-profile");
+  };
+
+  const handleLogOutClick = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
   };
 
   return (
@@ -216,6 +238,8 @@ function App() {
                       onCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       onCardLike={handleCardLike}
+                      handleEditProfileClick={handleEditProfileClick}
+                      handleLogOutClick={handleLogOutClick}
                     />
                   </ProtectedRoute>
                 }
@@ -247,6 +271,11 @@ function App() {
             card={selectedCard}
             openDeleteModal={openDeleteModal}
             handleCloseClick={closeActiveModal}
+          />
+          <EditProfileModal
+            onClose={closeActiveModal}
+            isOpen={activeModal === "edit-profile"}
+            onEditProfile={handleEditProfile}
           />
           <ConfirmDeleteModal
             activeModal={activeModal === "delete"}
