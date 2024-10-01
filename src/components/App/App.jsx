@@ -10,7 +10,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems } from "../../utils/api";
+import { getItems, likeCard, unlikeCard } from "../../utils/api";
 import { postItem } from "../../utils/api";
 import { deleteItem } from "../../utils/api";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
@@ -126,7 +126,7 @@ function App() {
 
     postItem(name, link, weather, token)
       .then((data) => {
-        setClothingItems((prev) => [data, ...prev]);
+        setClothingItems((prev) => [data.data, ...prev]);
         closeActiveModal();
       })
       .catch(console.error);

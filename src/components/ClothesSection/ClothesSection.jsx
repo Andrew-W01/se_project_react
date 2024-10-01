@@ -10,6 +10,7 @@ function ClothesSection({
   clothingItems,
   weatherData,
   handleAddClick,
+  onCardLike,
 }) {
   const currentUser = useContext(CurrentUserContext);
   const { currentTempUnit } = useContext(CurrentTemperatureUnitContext);
@@ -26,7 +27,12 @@ function ClothesSection({
         {clothingItems.map((item) => {
           return (
             item.owner === currentUser?._id && (
-              <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={onCardClick}
+                onCardLike={onCardLike}
+              />
             )
           );
         })}
