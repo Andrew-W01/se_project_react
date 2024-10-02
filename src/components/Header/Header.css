@@ -13,6 +13,7 @@
   font-weight: 700;
   line-height: 24px;
   text-align: left;
+  word-break: break-all;
 }
 
 .header__logo {
@@ -28,6 +29,7 @@
   border: none;
   font-family: "Cabinet Grotesk";
   cursor: pointer;
+  white-space: nowrap;
 }
 .header__add-clothes-btn:hover {
   color: grey;
@@ -57,4 +59,24 @@
 .header__link {
   text-decoration: none;
   color: black;
+}
+
+.header__signup-button {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
+  font-family: "Cabinet Grotesk";
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header__login-button {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
+  font-family: "Cabinet Grotesk";
+  cursor: pointer;
+  white-space: nowrap;
 }

@@ -43,7 +43,7 @@ export const deleteItem = (id, token) => {
 
 export const unlikeCard = (_id, token) => {
   return fetch(`${baseUrl}/items/${_id}/likes/`, {
-    method: "PUT",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
       authorization: `Bearer ${token}`,
