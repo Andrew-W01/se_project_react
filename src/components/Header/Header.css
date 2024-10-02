@@ -47,6 +47,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24.8px;
+  white-space: nowrap;
 }
 
 .header__date-and-location {
@@ -79,4 +80,11 @@
   font-family: "Cabinet Grotesk";
   cursor: pointer;
   white-space: nowrap;
+}
+
+.header__avatar {
+  width: 56px;
+  height: 56px;
+
+  border-radius: 50%;
 }
