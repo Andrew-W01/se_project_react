@@ -6,6 +6,7 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
   const currentUser = useContext(CurrentUserContext);
   const [name, setName] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -18,6 +19,9 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onEditProfile({ name, avatarUrl });
+    setIsSubmitted(true);
+    setName("");
+    setAvatarUrl("");
   };
 
   useEffect(() => {
@@ -25,7 +29,10 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
       setName(currentUser?.name || "");
       setAvatarUrl(currentUser?.avatar || "");
     }
-  }, [currentUser]);
+    if (!isOpen) {
+      setIsSubmitted(false);
+    }
+  }, [isOpen, currentUser, isSubmitted]);
 
   return (
     <ModalWithForm
@@ -59,6 +66,9 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
           onChange={handleAvatarUrlChange}
         />
       </label>
+      <button type="submit" className="modal__submit-btn ">
+        submit
+      </button>
     </ModalWithForm>
   );
 }
