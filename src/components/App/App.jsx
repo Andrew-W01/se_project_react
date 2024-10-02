@@ -58,19 +58,22 @@ function App() {
       })
       .catch(console.error);
   };
-
   const handleLogin = ({ email, password }) => {
     if (!email || !password) {
       return;
     }
+
     return auth
       .authorize(email, password)
       .then((data) => {
-        setCurrentUser(data);
-        setIsLoggedIn(true);
-        localStorage.setItem("jwt", data.token);
-        closeActiveModal();
-        navigate("/profile");
+        auth.checkToken(data.token).then((user) => {
+          setIsLoggedIn(true);
+          setCurrentUser(user);
+
+          localStorage.setItem("jwt", data.token);
+          closeActiveModal();
+          navigate("/profile");
+        });
       })
       .catch(console.error);
   };
@@ -229,6 +232,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     onCardLike={handleCardLike}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
@@ -245,6 +249,7 @@ function App() {
                       onCardLike={handleCardLike}
                       handleEditProfileClick={handleEditProfileClick}
                       handleLogOutClick={handleLogOutClick}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 }

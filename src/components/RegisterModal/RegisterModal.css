@@ -1,0 +1,28 @@
+.register__link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  background-color: #0000004d;
+  width: 124px;
+  height: 36px;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  font-family: "Cabinet Grotesk", "Arial", sans-serif;
+  cursor: pointer;
+}
+
+.register__login-link {
+  color: #0000004d;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  background-color: #fff;
+  width: 124px;
+  height: 36px;
+  border: none;
+  padding: 0;
+  font-family: "Cabinet Grotesk", "Arial", sans-serif;
+  cursor: pointer;
+}

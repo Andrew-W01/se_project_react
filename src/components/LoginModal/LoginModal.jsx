@@ -23,6 +23,11 @@ const Login = ({ handleLogin, isOpen, onClose, handleLoginClick }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin(data);
+
+    setData({
+      email: "",
+      password: "",
+    });
   };
 
   return (

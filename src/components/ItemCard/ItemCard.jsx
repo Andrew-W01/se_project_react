@@ -4,7 +4,7 @@ import liked from "../../assets/LikedHeart.svg";
 import unliked from "../../assets/UnlikedHeart.svg";
 import { useContext } from "react";
 
-function ItemCard({ item, onCardClick, onCardLike }) {
+function ItemCard({ item, onCardClick, onCardLike, isLoggedin }) {
   const currentUser = useContext(CurrentUserContext);
   const isLiked = item.likes.some((id) => id === currentUser?._id);
 

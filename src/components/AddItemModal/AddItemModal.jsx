@@ -2,7 +2,7 @@ import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 
-const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
+const AddItemModal = ({ onClose, isOpen, onAddItem, buttonText }) => {
   //name
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
@@ -106,6 +106,9 @@ const AddItemModal = ({ onClose, isOpen, onAddItem }) => {
           />{" "}
           Cold
         </label>
+        <button type="submit" className="modal__submit-btn ">
+          submit {buttonText}
+        </button>
       </fieldset>
     </ModalWithForm>
   );

@@ -31,13 +31,18 @@ const Register = ({
   };
 
   const handleSubmit = (e) => {
-    // console.log(handleSubmit);
-
     e.preventDefault();
     if (!isFormValid()) {
       return;
     }
     handleRegistration(data);
+
+    setData({
+      email: "",
+      password: "",
+      name: "",
+      avatar: "",
+    });
   };
   return (
     <ModalWithForm

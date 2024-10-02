@@ -1,0 +1,14 @@
+.modal__submit-btn {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  background-color: #0000004d;
+  width: 124px;
+  height: 36px;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  font-family: "Cabinet Grotesk", "Arial", sans-serif;
+  cursor: pointer;
+}
