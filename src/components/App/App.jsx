@@ -47,6 +47,15 @@ function App() {
 
   const navigate = useNavigate();
 
+  // const handleRegistration = (data) => {
+  //   signUp(data)
+  //     .then((res) => {
+  //       handleLogIn(data);
+  //       closeActiveModal();
+  //     })
+  //     .catch(console.error);
+  // };
+
   const handleRegistration = ({ email, password, name, avatar }) => {
     return auth
       .register(name, password, email, avatar)
@@ -264,12 +273,14 @@ function App() {
             onClose={closeActiveModal}
             onLogin={handleLoginClick}
             handleLogin={handleLogin}
+            setActiveModal={setActiveModal}
           />
           <Register
             isOpen={activeModal === "register"}
             onClose={closeActiveModal}
             onSignup={handleSignUpClick}
             handleRegistration={handleRegistration}
+            setActiveModal={setActiveModal}
           />
           <AddItemModal
             isOpen={activeModal === "add-garment"}

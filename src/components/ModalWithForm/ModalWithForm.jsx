@@ -1,6 +1,14 @@
 import "./ModalWithForm.css";
 import closeBtn from "../../assets/cls-btn.svg";
-function ModalWithForm({ children, title, isOpen, onClose, onSubmit }) {
+function ModalWithForm({
+  children,
+  title,
+  isOpen,
+  onClose,
+  onSubmit,
+  switchButtonClick,
+  switchButtonText,
+}) {
   function getModalClass() {
     if (isOpen) {
       return "modal_opened";

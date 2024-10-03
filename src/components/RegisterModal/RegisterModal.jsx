@@ -7,6 +7,7 @@ const Register = ({
   handleRegistration,
   onClose,
   handleSignUpClick,
+  setActiveModal,
 }) => {
   const [data, setData] = useState({
     name: "",
@@ -111,7 +112,7 @@ const Register = ({
           type="button"
           to="login"
           className="register__login-link"
-          onClick={handleSignUpClick}
+          onClick={() => setActiveModal("login")}
         >
           Or Log in
         </button>
