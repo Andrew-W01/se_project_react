@@ -40,7 +40,7 @@ const Login = ({ handleLogin, isOpen, onClose, handleLoginClick }) => {
       <label htmlFor="email" className="modal__label">
         Email*{" "}
         <input
-          type="email"
+          type="text"
           className="modal__input"
           id="email"
           required
@@ -53,7 +53,7 @@ const Login = ({ handleLogin, isOpen, onClose, handleLoginClick }) => {
       <label htmlFor="password" className="modal__label">
         Password*{" "}
         <input
-          type="password"
+          type="text"
           className="modal__input"
           id="password"
           required
