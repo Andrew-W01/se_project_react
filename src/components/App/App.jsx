@@ -47,15 +47,6 @@ function App() {
 
   const navigate = useNavigate();
 
-  // const handleRegistration = (data) => {
-  //   signUp(data)
-  //     .then((res) => {
-  //       handleLogIn(data);
-  //       closeActiveModal();
-  //     })
-  //     .catch(console.error);
-  // };
-
   const handleRegistration = ({ email, password, name, avatar }) => {
     return auth
       .register(name, password, email, avatar)
@@ -168,9 +159,8 @@ function App() {
     auth
       .editProfile(data, token)
       .then((res) => {
-        setCurrentUser(res.data);
+        setCurrentUser(res);
         closeActiveModal();
-        window.location.reload();
       })
       .catch(console.error);
   };
