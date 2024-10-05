@@ -15,9 +15,6 @@ const Register = ({
     password: "",
     avatar: "",
   });
-  if (!isOpen) {
-    return null;
-  }
 
   const isFormValid = () => {
     return data.name && data.email && data.password && data.avatar;
@@ -37,14 +34,12 @@ const Register = ({
       return;
     }
     handleRegistration(data);
-
-    setData({
-      email: "",
-      password: "",
-      name: "",
-      avatar: "",
-    });
   };
+
+  useEffect(() => {
+    setData({ name: "", email: "", password: "", avatar: "" });
+  }, [isOpen]);
+
   return (
     <ModalWithForm
       title="Sign Up"
@@ -58,7 +53,7 @@ const Register = ({
         <input
           type="text"
           className="modal__input"
-          id="email"
+          id="email-register"
           placeholder="Email"
           name="email"
           value={data.email}
@@ -70,7 +65,7 @@ const Register = ({
         <input
           type="text"
           className="modal__input"
-          id="password"
+          id="password-register"
           placeholder="Password"
           name="password"
           value={data.password}

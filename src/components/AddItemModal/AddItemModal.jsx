@@ -2,8 +2,15 @@ import "./AddItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import React, { useState, useEffect } from "react";
 
-const AddItemModal = ({ onClose, isOpen, onAddItem, buttonText }) => {
+const AddItemModal = ({
+  onClose,
+  isOpen,
+  onAddItem,
+  buttonText,
+  isLoggedIn,
+}) => {
   //name
+
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     console.log(e.target.value);
@@ -106,6 +113,7 @@ const AddItemModal = ({ onClose, isOpen, onAddItem, buttonText }) => {
           />{" "}
           Cold
         </label>
+
         <button type="submit" className="modal__submit-btn ">
           Add garment
         </button>

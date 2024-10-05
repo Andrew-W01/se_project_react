@@ -3,7 +3,13 @@ import closeBtn from "../../assets/cls-btn.svg";
 import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function ItemModal({ activeModal, handleCloseClick, card, openDeleteModal }) {
+function ItemModal({
+  activeModal,
+  handleCloseClick,
+  card,
+  openDeleteModal,
+  isLoggedIn,
+}) {
   const currentUser = useContext(CurrentUserContext);
 
   const isOwn = card.owner === currentUser?._id;
@@ -27,16 +33,19 @@ function ItemModal({ activeModal, handleCloseClick, card, openDeleteModal }) {
 
           <p className="modal__weather">Weather: {card.weather}</p>
         </div>
-        {currentUser && (
-          <button
-            onClick={() => {
-              openDeleteModal();
-            }}
-            className="card-item__delete-btn"
-          >
-            Delete Item
-          </button>
-        )}
+        {
+          (currentUser,
+          isLoggedIn && (
+            <button
+              onClick={() => {
+                openDeleteModal();
+              }}
+              className="card-item__delete-btn"
+            >
+              Delete Item
+            </button>
+          ))
+        }
       </div>
     </div>
   );

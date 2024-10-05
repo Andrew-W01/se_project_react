@@ -6,6 +6,7 @@ import { useContext } from "react";
 
 function ItemCard({ item, onCardClick, onCardLike, isLoggedin }) {
   const currentUser = useContext(CurrentUserContext);
+
   const isLiked = item.likes.some((id) => id === currentUser?._id);
 
   const handleCardClick = () => {
@@ -21,7 +22,7 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedin }) {
     <li className="card">
       <div className="card__header">
         <h2 className="card__name">{item.name}</h2>
-        {currentUser && (
+        {isLoggedin && (
           <img
             className="card__like-button"
             onClick={handleLike}

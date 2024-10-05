@@ -282,6 +282,7 @@ function App() {
             card={selectedCard}
             openDeleteModal={openDeleteModal}
             handleCloseClick={closeActiveModal}
+            isLoggedIn={isLoggedIn}
           />
           <EditProfileModal
             onClose={closeActiveModal}

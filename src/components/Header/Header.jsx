@@ -30,15 +30,18 @@ function Header({
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      {currentUser && (
-        <button
-          onClick={handleAddClick}
-          type="button"
-          className="header__add-clothes-btn"
-        >
-          + Add Clothes
-        </button>
-      )}
+      {
+        (currentUser,
+        isLoggedIn && (
+          <button
+            onClick={handleAddClick}
+            type="button"
+            className="header__add-clothes-btn"
+          >
+            + Add Clothes
+          </button>
+        ))
+      }
       {isLoggedIn ? (
         <Link to="/profile" className="header__link">
           <div className="header__user">

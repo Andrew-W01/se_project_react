@@ -18,22 +18,12 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onEditProfile({ name, avatarUrl });
-
-    setName("");
-    setAvatarUrl("");
   };
 
   useEffect(() => {
-    if (isOpen && currentUser) {
-      setName(currentUser?.name || "");
-      setAvatarUrl(currentUser?.avatar || "");
-    }
-
-    if (!isOpen) {
-      setName("");
-      setAvatarUrl("");
-    }
-  }, [isOpen, currentUser]);
+    setName("");
+    setAvatarUrl("");
+  }, [isOpen]);
 
   return (
     <ModalWithForm

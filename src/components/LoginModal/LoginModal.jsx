@@ -29,12 +29,10 @@ const Login = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin(data);
-
-    setData({
-      email: "",
-      password: "",
-    });
   };
+  useEffect(() => {
+    setData({ email: "", password: "" });
+  }, [isOpen]);
 
   return (
     <ModalWithForm
