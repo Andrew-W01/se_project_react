@@ -11,6 +11,7 @@ function ClothesSection({
   weatherData,
   handleAddClick,
   onCardLike,
+  isLoggedIn,
 }) {
   const currentUser = useContext(CurrentUserContext);
   const { currentTempUnit } = useContext(CurrentTemperatureUnitContext);
@@ -30,6 +31,7 @@ function ClothesSection({
             <ItemCard
               key={item._id}
               item={item}
+              isLoggedin={isLoggedIn}
               onCardClick={onCardClick}
               onCardLike={onCardLike}
             />

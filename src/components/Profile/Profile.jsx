@@ -11,6 +11,7 @@ function Profile({
   onCardLike,
   handleLogOutClick,
   handleEditProfileClick,
+  isLoggedIn,
 }) {
   return (
     <div className="profile">
@@ -27,6 +28,7 @@ function Profile({
           weatherData={weatherData}
           onCardLike={onCardLike}
           handleAddClick={handleAddClick}
+          isLoggedIn={isLoggedIn}
         />
       </section>
     </div>
