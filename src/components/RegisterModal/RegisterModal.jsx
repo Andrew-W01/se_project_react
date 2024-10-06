@@ -48,7 +48,7 @@ const Register = ({
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="signin-email" className="modal__label">
         Email*{" "}
         <input
           type="text"
@@ -60,7 +60,7 @@ const Register = ({
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="signin-password" className="modal__label">
         Password*{" "}
         <input
           type="text"
@@ -72,7 +72,7 @@ const Register = ({
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="singin-name" className="modal__label">
         Name*{" "}
         <input
           type="text"
@@ -84,7 +84,7 @@ const Register = ({
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="signin-avatar" className="modal__label">
         Avatar URL*{" "}
         <input
           type="url"

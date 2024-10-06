@@ -42,7 +42,7 @@ const Login = ({
       onClose={onClose}
       switchButtonClick={() => setActiveModal("register")}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="login-email" className="modal__label">
         Email*{" "}
         <input
           type="text"
@@ -55,7 +55,7 @@ const Login = ({
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="login-password" className="modal__label">
         Password*{" "}
         <input
           type="text"

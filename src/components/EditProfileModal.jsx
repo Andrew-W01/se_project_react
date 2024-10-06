@@ -37,7 +37,7 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
       modalClass="modal__content modal__content_type_form_small"
     >
       {" "}
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="edit-name" className="modal__label">
         Name *{" "}
         <input
           type="text"
@@ -49,7 +49,7 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
           required
         />
       </label>
-      <label htmlFor="avatarUrl" className="modal__label">
+      <label htmlFor="edit-avatarUrl" className="modal__label">
         Avatar *{" "}
         <input
           type="url"
