@@ -21,9 +21,11 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
   };
 
   useEffect(() => {
-    setName("");
-    setAvatarUrl("");
-  }, [isOpen]);
+    if (currentUser) {
+      setName(currentUser?.name || "");
+      setAvatarUrl(currentUser?.avatar || "");
+    }
+  }, [currentUser]);
 
   return (
     <ModalWithForm
@@ -44,6 +46,7 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
           placeholder="Name"
           value={name}
           onChange={handleNameChange}
+          required
         />
       </label>
       <label htmlFor="avatarUrl" className="modal__label">
@@ -55,6 +58,7 @@ function EditProfileModal({ isOpen, onClose, onEditProfile }) {
           placeholder="Avatar URL"
           value={avatarUrl}
           onChange={handleAvatarUrlChange}
+          required
         />
       </label>
       <button type="submit" className="modal__submit-btn ">
