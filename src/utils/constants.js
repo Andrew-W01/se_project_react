@@ -109,9 +109,16 @@ export const defaultClothingItems = [
   },
 ];
 
-export const coordinates = {
+const coordinates = {
   latitude: 27.950575,
   longitude: -82.457176,
 };
 
-export const APIkey = "64c8ca6be7e56d0d2a39cb12ea9e9f4d";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.aw-demo.wildsurf.net"
+    : "http://localhost:3001";
+
+const APIkey = "64c8ca6be7e56d0d2a39cb12ea9e9f4d";
+
+export { coordinates, baseUrl, APIkey };

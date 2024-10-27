@@ -56,6 +56,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24.8px;
+  white-space: nowrap;
 }
 .header__link {
   text-decoration: none;
